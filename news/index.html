@@ -8,7 +8,6 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-
     <link
       rel="stylesheet"
       type="text/css"
@@ -37,17 +36,10 @@
 
        }
        #app #news1 .news1-item{
-     
         padding-right: 20px;
       }
        #app #nav_num{
         width: 100%!important;
-       }
-       #app #news1 .news1-item .item_l .item_video{
-         height: 200px!important
-       }
-       #app #news1 .news1-item .item_l .item_video .video video{
-         height: 111px!important
        }
      }
      @media screen and (min-width:767px) and (max-width:1024px){
@@ -87,7 +79,6 @@
                 <video
                   :src="item.video"
                   controls
-                  
                   :poster="item.thumbnail"
                 ></video>
               </div>
@@ -156,11 +147,9 @@
             app.news = res.data;
             app.nav_length = res.data.length + 1;
 
-            // console.log(app.news);
           }
         });
         // nav_index_item[0].classList().add("nav_active");
-
         // nav_index_item[i].classList
         //   .add("nav_active")
         //   .silblings()
@@ -172,6 +161,7 @@
           }
         }
       }
+      
     </script>
   </body>
 </html>
