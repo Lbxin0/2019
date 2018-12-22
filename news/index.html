@@ -27,6 +27,36 @@
       media="screen"
       href="./css/media.css"
     />
+    <style>
+     @media screen and (max-width:765px){
+       .news1-item,
+       .news1-item .item_l,
+       .news1-item .item_l .own_item,
+       .news1-item .item_l .item_video{
+         width: 100%!important;
+
+       }
+       #app #news1 .news1-item{
+     
+        padding-right: 20px;
+      }
+       #app #nav_num{
+        width: 100%!important;
+       }
+     }
+     @media screen and (min-width:767px) and (max-width:1024px){
+      #app #news1 .news1-item{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        padding-right: 20px;
+      }
+      #app #news1 .news1-item .item_l{
+        flex: none;
+        width:100%
+      }
+     }
+    </style>
   </head>
   <body>
     <div id="app">
