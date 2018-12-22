@@ -1,0 +1,6 @@
+@media screen and (max-width: 1062px) {
+  .news1-item .item_l {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./css/index.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./css/media.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div id="news1">
+        <header>随机推荐热门段子【神评版本】</header>
+        <div class="news1-item">
+          <div class="item_l" v-for="item in news">
+            <div class="own_item">
+              <div class="own_img">
+                <img :src="item.header" alt="图片资源加载失败~~~~~" />
+              </div>
+              <div class="own_mesage">
+                <h4 class="text-wrap">类型：{{ item.username }}</h4>
+                <h5 class="text-wrap">用户ID：{{ item.uid }}</h5>
+              </div>
+            </div>
+            <div class="item_video">
+              <header class="text-wrap" :title="item.text">
+                {{ item.text }}
+              </header>
+              <div class="video">
+                <video
+                  :src="item.video"
+                  controls
+                  muted
+                  :poster="item.thumbnail"
+                ></video>
+              </div>
+              <div class="watch_n">
+                <div class="time">更新时间：{{ item.passtime }}</div>
+                <div class="agree" @click.once="item.forward++">
+                  {{ item.forward }}
+                </div>
+                <div class="oppose" @click.once="item.down--">
+                  {{ item.down }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="nav_num">
+        <div
+          class="nav_item"
+          @click="change_index(index)"
+          v-for="(item,index) in nav_length"
+          :class="{nav_active:nav_index}"
+        >
+          {{ index }}
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+    <script>
+      Vue.filter("reverse", function(value) {
+        return value.split(" ");
+      });
+      var page_index = 1;
+      var app = new Vue({
+        el: "#app",
+        data: {
+          news: [], //数据总包
+          forward: 0, //评价同意
+          down: 0, //评价反对
+          nav_length: 20, //底部导航条长度数量
+          //   page_index: 1 //ajax_url页面序号
+          nav_index: false
+        },
+        methods: {
+          change_index(i) {
+            //由底部导航控制ajax_url页面序号
+            page_index = i + 1;
+            console.log(page_index);
+            ajax_news(i);
+            $(window).scrollTop(0);
+          }
+        },
+        created: function() {
+          ajax_news();
+        }
+      });
+      var nav_index_item = document.querySelectorAll(".nav_item");
+      function ajax_news(i) {
+        console.log(page_index);
+        $.ajax({
+          url: `https://www.apiopen.top/satinGodApi?type=1&page=${page_index}`,
+          //   url: "https://www.apiopen.top/satinGodApi?type=1&page=1",
+          success: function(res) {
+            //   console.log(res);
+            app.news = res.data;
+            app.nav_length = res.data.length + 1;
+
+            // console.log(app.news);
+          }
+        });
+        // nav_index_item[0].classList().add("nav_active");
+
+        // nav_index_item[i].classList
+        //   .add("nav_active")
+        //   .silblings()
+        //   .classList.remove("nav_active");
+        for (var j = 0; j < nav_index_item.length; j++) {
+          nav_index_item[j].classList = "nav_item";
+          if (j === i) {
+            nav_index_item[j].classList = "nav_item nav_active";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
