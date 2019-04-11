@@ -6,6 +6,7 @@ Vue.use(Router)
 
 import  Home from '@/pages/home/home'
 import  finance from '@/pages/financial/index'
+import  BaiTiao from '@/pages/baitiao/index'
 
 export default new Router({
   routes: [ 
@@ -23,6 +24,11 @@ export default new Router({
       path:'/finance',
       name:'finance',
       component:finance
+    },
+    { 
+      path:'/baitiao',
+      name:'BaiTiao',
+      component:BaiTiao
     }
   ]
 })
