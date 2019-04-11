@@ -7,6 +7,7 @@ Vue.use(Router)
 import  Home from '@/pages/home/home'
 import  finance from '@/pages/financial/index'
 import  BaiTiao from '@/pages/baitiao/index'
+import  CrowdFunding from '@/pages/crowdfunding/index'
 
 export default new Router({
   routes: [ 
@@ -29,6 +30,11 @@ export default new Router({
       path:'/baitiao',
       name:'BaiTiao',
       component:BaiTiao
+    },
+    { 
+      path:'/crowdfunding',
+      name:'CrowdFunding',
+      component:CrowdFunding
     }
   ]
 })

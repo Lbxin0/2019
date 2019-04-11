@@ -24,7 +24,7 @@
       >
       <span>白条</span>
     </router-link>
-    <router-link to="/zhongchou">
+    <router-link to="/crowdfunding">
       <img
         src="//img12.360buyimg.com/jrpmobile/jfs/t3604/98/635506544/2317/443d3a51/580f240aNbee3dcc4.png?width=66&height=66"
         alt
