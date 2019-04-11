@@ -34,7 +34,7 @@ export default {
         slidesPerView: 3,
         spaceBetween: 20,
         loop: false,
-        autoplay: false
+        autoplay: false,
       },
       moneyitems: [
         {
