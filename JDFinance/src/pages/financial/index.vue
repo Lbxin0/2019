@@ -14,7 +14,7 @@
         alt
       >
     </div>
-    <Pannel :title="title" :cpclass="cpclass">
+    <Pannel :title="title">
       <div class="moneyitem" v-for="item in moneyitem" :key="item.title">
         <div class="itemimg">
           <img :src="item.img" alt>
@@ -52,7 +52,6 @@ export default {
   data() {
     return {
       title: "理财精选",
-      cpclass: "",
       moneyitem: [
         {
           title: "月度理财",

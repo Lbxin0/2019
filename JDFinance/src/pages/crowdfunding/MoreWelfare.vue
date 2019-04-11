@@ -1,6 +1,6 @@
 <template>
     <div class='MoreWelfare'>
-        <Pannel :title="title" :cpclass="cpclass">
+        <Pannel :title="Dtitle">
             <span
                 slot="titleadd"
                 class="titleadd"
@@ -12,10 +12,10 @@
 
                     "
                 >
-                {{titleadd}} >
+                {{Dtitleadd}} >
             </span>
         </Pannel>
-        <section style="margin-top:1px" v-for="item in sectionArray" :key="item">
+        <section style="margin-top:1px" v-for="item in DsectionArray" :key="item.src">
             <img :src="item.src" alt="">
         </section>
     </div>
@@ -40,9 +40,9 @@ export default {
     },
     data() {
         return {
-            title:this.$props.title,
-            titleadd:this.$props.titleadd,
-            sectionArray:this.$props.sectionArray
+            Dtitle:this.$props.title,
+            Dtitleadd:this.$props.titleadd,
+            DsectionArray:this.$props.sectionArray
         }
     },
 }
