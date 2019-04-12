@@ -1,6 +1,6 @@
 <template>
   <div class="money">
-    <Pannel :title="title" :cpclass="cpclass">
+    <Pannel :title="title">
         <section class="content">
             <ul>
                 <li v-for="item in Ditems" :key="item.title">
@@ -41,7 +41,6 @@ export default {
   data() {
     return {
       title: "理财精选",
-      cpclass:"",
       Ditems: [
         {
           title: "定期理财",

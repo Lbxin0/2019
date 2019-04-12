@@ -1,6 +1,6 @@
 <template>
   <div class="newproduct">
-    <Pannel :title="title" :cpclass="cpclass" style="position:relative">
+    <Pannel :title="title" style="position:relative">
       <span slot="titleadd"
         class="titleadd"
         style="
@@ -29,7 +29,6 @@ export default {
   data() {
     return {
       title: "众筹新品",
-      cpclass:"",
       productlist: [
         {
           href: "home",
