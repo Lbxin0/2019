@@ -3,7 +3,7 @@
         <swiper-component :items='items' :options="options"/>
         <div class="list">
             <div class="item" v-for="item in enters" :key="item.img">
-                <router-link :to="{name: item.href}">
+                <router-link :to="item.href">
                 <img :src="item.img" :alt="item.title">
                 <h4>{{item.title}}</h4>
                 </router-link>
@@ -85,7 +85,7 @@ export default {
                 title: '优惠券'
             },
             {
-                href: 'home',
+                href: '/freePacket',
                 img: 'https://img12.360buyimg.com/jrpmobile/jfs/t5590/252/875247023/17343/946aa72c/59224650N0f7ffc92.png?width=132&height=132',
                 title: '领红包'
             },

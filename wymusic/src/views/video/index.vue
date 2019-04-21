@@ -24,7 +24,7 @@ export default {
     .index{
         .singfind{
             background: url('../../assets/images/icon/camera.png') center no-repeat / 100% 100%;
-            background-size:contain;
+            background-size:45%;
             height:100%;
         }
         .searchson{

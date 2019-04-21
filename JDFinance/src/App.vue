@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="background:#fff">
     <jD-header />
     <router-view></router-view>
     <JDFooter/>
@@ -24,7 +24,7 @@ export default {
 <style>
 @import './assets/css/reset.less';
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family:'PingFangSC-Regular', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

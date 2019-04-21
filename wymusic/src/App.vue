@@ -1,21 +1,39 @@
 <template>
   <div id="app">
-    <router-view/>
-    <FooterNav></FooterNav>
+    <PLay v-if="PLay"></PLay>
+    <CheckToken v-if="login && !PLay"></CheckToken>
+    <router-view v-if="!login && !PLay"/>
+    <FooterNav v-if="!login && !PLay"></FooterNav>
   </div>
 </template>
 
 
 <script>
+import PLay from './views/play/play.vue'
 import FooterNav from '@/components/footer'
+import axios from 'axios'
+import CheckToken from './views/login/CheckToken'
+import { log } from 'util';
 export default {
   data() {
     return {
-      
+      login:false,
+      PLay:true
     }
   },
+  mounted(){
+    axios.get('/login/cellphone?phone=15101366030&password=Lbxin0516').then(
+      res=>{
+        console.log(res)
+      }
+    ).catch(err=>{
+      console.log(err)
+    })
+  },
   components:{
-    FooterNav
+    FooterNav,
+    CheckToken,
+    PLay
   }
 }
 </script>

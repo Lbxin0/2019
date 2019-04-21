@@ -63,12 +63,19 @@ export default {
   z-index:111;
   .router-link-active {
       color: red;
+      background: #fff;
   }
   a {
     text-decoration: none;
     flex: 1;
     text-align: center;
     color: #656565;
+    // &:link,
+    // &:visited,
+    // &:hover,
+    // &:active{
+    //   background: #fff;
+    // }
     img {
       width: 40%;
       margin: 3px auto;
