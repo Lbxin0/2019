@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       login:false,
-      PLay:true
+      PLay:false
     }
   },
   mounted(){

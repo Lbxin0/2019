@@ -1,6 +1,6 @@
 <template>
   <!-- @someSwiperEvent="callback" -->
-  <div class="containers" style>{{typeof(bannerurl)}}----{{tobanner}}
+  <div class="containers" style>
     <swiper :options="swiperOption" ref="mySwiper" class="swiperOwns" style="width:100%">
       <!-- slides -->
       <swiper-slide
