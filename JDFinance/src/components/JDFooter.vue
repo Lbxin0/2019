@@ -32,13 +32,13 @@
       >
       <span>众筹</span>
     </router-link>
-    <router-link to="/own">
+    <router-link to="/relax">
       <img
-        src="//img12.360buyimg.com/jrpmobile/jfs/t3340/68/639059082/2591/800e2d6b/580f51cdN4caf20b2.png?width=66&height=66"
+        src="../assets/images/relax.png"
         alt
         srcset
       >
-      <span>我的</span>
+      <span>娱乐时刻</span>
     </router-link>
   </div>
 </template>

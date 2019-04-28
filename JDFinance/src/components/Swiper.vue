@@ -2,9 +2,9 @@
   <section :style="cname">
     <swiper :options="options" :not-next-tick="options.notNextTick" :class="cclass">
       <swiper-slide v-for="item in items" :key="item.src">
-        <router-link :to="{name: item.href}">
+        <!-- <router-link :to="{name: item.href}"> -->
           <img :src="item.src" alt="" style="width:100%;height:100%">
-        </router-link>
+        <!-- </router-link> -->
       </swiper-slide>
       <div class="swiper-pagination" v-if="options" slot="pagination"></div>
     </swiper>

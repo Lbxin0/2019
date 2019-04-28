@@ -1,14 +1,15 @@
 <template>
     <div class='home'>
         <swiper-component :items='items' :options="options"/>
-        <div class="list">
+        <!-- <div class="list">
             <div class="item" v-for="item in enters" :key="item.img">
                 <router-link :to="item.href">
                 <img :src="item.img" :alt="item.title">
                 <h4>{{item.title}}</h4>
                 </router-link>
             </div>
-        </div>
+        </div> -->
+        <singer-pAnnel :enters="enters"></singer-pAnnel>
         <Pannel :title="title" :cpclass='cpclass'>
             <div class="content">
                 <div class="item">
@@ -41,8 +42,8 @@
 </template>
 <script>  
 import SwiperComponent from '@/components/Swiper'
-// import SwiperComponents from '@/components/swiper2'
-import Pannel from '@/components/Pannel'
+import SingerPAnnel from '@/components/singerPAnnel' 
+import Pannel from '@/components/Pannel' 
 import money from './money'
 import newproduct from './newproduct'
 import homeswiper from './homeswiper'
@@ -127,6 +128,7 @@ export default {
         homeswiper,
         newproduct,
         JDInfo,
+        SingerPAnnel
         // SwiperComponents
     },
     mounted() {
@@ -145,29 +147,6 @@ export default {
     .panel
         width: 100vw
         @include panel
-    .list
-        display: flex
-        padding:5px 0
-        justify-content: center
-        flex-wrap: wrap
-        align-items:center
-        width:100vw
-        .item
-            text-align: center
-            display:flex
-            width:24vw
-            padding:7px 0
-            a
-                text-decoration: none
-                img
-                    display: block
-                    width:55%
-                    border-radius: 50%
-                    margin: 0 auto
-                h4
-                    font-size: 18px
-                    margin-top: 12px
-                    color: #666
     .content
         @include list(row)
         border:1px solid #ddd
@@ -198,7 +177,7 @@ export default {
                     height: 100px
                     width: 100%
                     box-sizing: border-box
-                    position:relative
+                    position: relative
                     &:first-child
                         border-bottom: 1px solid #ddd
                 h4
@@ -210,7 +189,7 @@ export default {
                     width: 70%
                     font-size: 14px
                 p
-                    text-align:center
+                    text-align: center
                     width: 70%
                     font-size: 14px
                 img 

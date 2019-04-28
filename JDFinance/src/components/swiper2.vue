@@ -1,53 +1,79 @@
 <template>
-  <div class="swiper">
-    <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-      <div
-        class="swiper-slide swiper-slide-active"
-        style="width: 105px; margin-right: 30px;"
-      >Slide 1</div>
-      <div class="swiper-slide swiper-slide-next" style="width: 105px; margin-right: 30px;">Slide 2</div>
-      <div class="swiper-slide" style="width: 105px; margin-right: 30px;">Slide 3</div>
-
-      <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
-        <span
-          class="swiper-pagination-bullet swiper-pagination-bullet-active"
-          tabindex="0"
-          role="button"
-          aria-label="Go to slide 1"
-        ></span>
-        <span
-          class="swiper-pagination-bullet"
-          tabindex="0"
-          role="button"
-          aria-label="Go to slide 2"
-        ></span>
-        <span
-          class="swiper-pagination-bullet"
-          tabindex="0"
-          role="button"
-          aria-label="Go to slide 3"
-        ></span>
-      </div>
-    </div>
-  </div>
+  <section :style="cname">
+    <swiper :options="options" :not-next-tick="options.notNextTick" :class="cclass">
+      <swiper-slide v-for="(item,index) in items" :key="index">
+          <img :src="item" alt="" style="width:100%;height:100%">
+      </swiper-slide>
+      <div class="swiper-pagination" v-if="options" slot="pagination"></div>
+    </swiper>
+  </section>
 </template>
-<script src="../assets/js/swiper.min.js"></script>
-<script>
-var swiper = new Swiper(".swiper-container", {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  freeMode: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
-  }
-});
 
+<script>
+import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
-  name: "swiper",
-  props: {}
+  
+  props: {
+    cclass:{
+      type:String,
+      default:""
+    },
+    cname: {
+      type: String,
+      default: ""
+    },
+    options: {
+      type: Object,
+      default() {
+        return {
+          // slidesPerView:{
+          //   type:Number,
+          //   default:1,
+          // },
+          // spaceBetween:{
+          //   default:0,
+          //   type:Number  
+          // },
+          // freeMode: {
+          //   default:true,
+          //   type:Boolean
+          // },
+          autoplay: {
+            default:true,
+            type:Boolean  
+          },
+          loop:  {
+            default:true,
+            type:Boolean  
+          },
+          pagination: {
+            el: ".swiper-pagination"
+          },
+          // hashNavigation: true,
+          // notNextTick: true,
+          // hideOnClick :true,
+        };
+      }
+    },
+    items: {
+      type: Array,
+      default() {
+        return [
+          {
+            href: "",
+            src: ""
+          }
+        ];
+      }
+    }
+  },
+  components: {
+    swiper,
+    swiperSlide
+  }
 };
 </script>
-<style scoped lang='sass'>
-// @import './assets/css/swiper.min.css';
+
+<style>
+@import "~swiper/dist/css/swiper.css";
 </style>

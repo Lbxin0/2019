@@ -1,8 +1,8 @@
 <template>
-  <div id="app" style="background:#fff">
-    <jD-header />
+  <div id="app" style="background:#fff" :style="{'margin-top': ($route.path!='/relax') ? '60px':'0px'}">
+    <jD-header v-if="this.$route.path !='/relax'"/>
     <router-view></router-view>
-    <JDFooter/>
+    <JDFooter v-if="this.$route.path !='/relax'"/>
   </div>
 </template>
 
@@ -14,9 +14,13 @@ export default {
   name: 'app',
   components: {
     JDHeader,
-    JDFooter
+    JDFooter,
+    pathTravel:false
+  },
+  watch: {
   },
   mounted() {
+    console.log(this.$route.path);
   },
 }
 </script>
@@ -29,7 +33,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   overflow-x: hidden;
 }
 </style>

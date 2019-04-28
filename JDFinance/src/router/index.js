@@ -9,6 +9,7 @@ import  finance from '@/pages/financial/index'
 import  BaiTiao from '@/pages/baitiao/index'  
 import  CrowdFunding from '@/pages/crowdfunding/index'
 import  FreePacket from '@/pages/freePacket/index'
+import  Relax from '@/pages/relax/index'
 
 export default new Router({
   routes: [ 
@@ -41,6 +42,11 @@ export default new Router({
       path:'/freePacket',
       name:'FreePacket',
       component:FreePacket
+    },
+    { 
+      path:'/relax',
+      name:'relax',
+      component:Relax
     }
   ]
 })
