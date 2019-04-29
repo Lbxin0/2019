@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Loading v-if="this.$store.state.loading" class="loading"></Loading>
      <router-view name='pannellist'></router-view>
   <!-- <div id="app" @touchstart.stop.prevent="touchstart" @touchend.stop.prevent="touchend"> -->
     <div class="playifram" v-show="iframeState" :style="{backgroundImage:'url(' + soninfoal.picUrl + ')'}">
@@ -75,6 +76,7 @@ import Footer from './components/footer.vue'
 import Progress from './components/progress.vue'
 import Search from './components/search.vue'
 import Lyric from './pages/music/lyric.vue'
+import Loading from './pages/loading'
 import axios from 'axios'
 // document.querySelector('.login').style.height=document.documentElement.clientHeight;
 export default {
@@ -83,10 +85,11 @@ export default {
     Footer,
     Progress,
     Lyric,
-    Search
+    Search,
+    Loading
   },
-  computed: {
-    
+  beforeCreate() {
+    this.$store.state.loading=true
   },
   data(){
     return{
@@ -122,6 +125,7 @@ export default {
     ).catch(err=>{
       console.log(err)
     })
+    this.$store.state.loading=false
   },
   created(){
     
@@ -461,9 +465,19 @@ a{
   background: #fff;
   box-sizing: border-box;
   width: 100vw;
-  padding-bottom: 55px;
+  padding-bottom: 5rem;
   position: relative;
   z-index: 105;
+  margin-top:5rem;
+  overflow-x: hidden;
+  .loading{
+    position: fixed;
+    top:0;
+    right: 0;
+    left:0;
+    bottom:0;
+    z-index:555;
+  }
   .playifram{
     width: 100%;
     height: 91vh;
@@ -474,6 +488,7 @@ a{
     z-index: 105;
     overflow: hidden;
     color: red;
+    font-size: 1.6rem;
     &::before{
       content: " ";
       display: block;
@@ -486,9 +501,9 @@ a{
     }
     .colse{
     //    float: right;
-        right: .5rem;
-        width: 3rem;
-        height: 3rem;
+        right: 1rem;
+        width: 5rem;
+        height: 5rem;
         position: absolute;
         left: 0;
         background: url('./assets/icon/close.png') center no-repeat / 100% 100%;
@@ -503,15 +518,15 @@ a{
         line-height: 2rem;
     }
     .playbg{
-      width: 15rem;
-      height: 15rem;
+      width: 26rem;
+      height: 26rem;
       border-radius: 50%;
       border:1px solid red;
       position: absolute;
       top: 50%;
       left:50%;
-      margin-left: -7.5rem;
-      margin-top: -10rem;
+      margin-left: -13rem;
+      margin-top: -16rem;
       box-sizing: border-box;
       overflow: hidden;
       background: url('./assets/playbg.png') center no-repeat / 100% 100%;
@@ -539,8 +554,7 @@ a{
     }
     .audiocontrol{
       width: 100vw;
-      height: 7rem;
-      border:1px solid red; 
+      height: 12rem; 
       position: absolute;
       bottom: 0;
       box-sizing: border-box;
@@ -550,7 +564,7 @@ a{
         box-sizing: border-box;
       }
       .progresslyric{
-        height: 35%;
+        height: 30%;
         // background: red;
         position: relative;
         .lyric{
@@ -631,7 +645,7 @@ a{
         }
       }
       .soncontrol{
-        height: 25%;
+        height: 30%;
         display: flex;
         >span{
           height: 100%;
@@ -715,12 +729,14 @@ a{
       width: 100%;
     }
   header{
-    width: 100%;
+    width: 100vw;
     height: 5rem;
     line-height: 5rem;
     display: flex;
-    background: rgba(255, 0, 0,.8);
+    background: rgba(255, 0, 0,1);
     // border-bottom:1px solid #000;
+    position: fixed;
+    top:0;
     .headerL{
       flex: 1;
       background: url('./assets/icon/phone.png') center no-repeat;

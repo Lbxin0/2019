@@ -10,6 +10,8 @@ const state={
         hotsearch:'',
         videoInfo:'',   //video资源相关信息
         videoSrc:"",
+        commentitem:"",
+        loading:true
 }
 
 export default state

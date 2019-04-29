@@ -9,7 +9,7 @@ import promise from 'es6-promise'
 promise.polyfill()
 // vue.use(Vuex)
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://123.56.221.77/musicApi'
 // axios.defaults.baseURL = 'http://api.mtnhao.com'
 
 

@@ -9,7 +9,7 @@
                 <!-- <h4> <span class=""></span></h4> -->
                 <img :src="sonitem.artist.img1v1Url" alt="">
             </div>
-            <div class="infoitem" ref="infoitem" style="height: 1.9rem;">
+            <div class="infoitem" ref="infoitem" style="height: 3rem;">
                 <p>{{sonitem.artist.briefDesc}}</p>
                 <i @click="openinfoitem()" ref="openinfoI"></i>
             </div>
@@ -54,7 +54,7 @@
             openinfoitem(){
                 let that=this;
                 // alert(that.$refs.infoitem.style.height)
-                that.$refs.infoitem.style.height=(that.$refs.infoitem.style.height=='100%')?'1.9rem':'100%'
+                that.$refs.infoitem.style.height=(that.$refs.infoitem.style.height=='100%')?'3rem':'100%'
                 if(that.$refs.infoitem.style.height=='100%'){
                     that.$refs.openinfoI.style.transform = "rotate(180deg)"
                 }else{
@@ -166,9 +166,9 @@
     }
     .colse{
     //    float: right;
-        right: .5rem;
-        width: 3rem;
-        height: 3rem;
+        right: 1rem;
+        width: 5rem;
+        height: 5rem;
         position: absolute;
         left: 0;
         background: url('../../assets/icon/close.png') center no-repeat / 100% 100%;
@@ -214,8 +214,8 @@
                 width: 85%;
             }
             i{
-                width: 2rem;
-                height: 1.8rem;
+                width: 3rem;
+                height: 2.8rem;
                 display: block;
                 position: absolute;
                 top: 0;
@@ -233,6 +233,7 @@
         text-align: left;
         // padding:0 0 10px 15px;
         padding-bottom: 10px;
+        font-size: 1.5rem;
     }
 }
 
@@ -240,6 +241,7 @@
     width:96%;
     background:#ccc;
     margin: 0 auto;
+    font-size: 1.4rem;
     .slideOwn{
         width: 100%;
         height:100%;

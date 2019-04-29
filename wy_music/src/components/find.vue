@@ -3,7 +3,9 @@
     <!-- <router-view style="position:absolute;top:0;left:0;background:pink"></router-view> -->
     <!-- <router-view v-show="pannelid" @changepannerid='changepannerid($evnet)'></router-view> -->
     <div class="container" v-show="!pannelid">
-      <Banner :slidesPerView="1" :bannerurl="banner" :spaceBetween=0></Banner>
+      <div class="bannerItem">
+        <Banner :slidesPerView="1" :bannerurl="banner" :spaceBetween=0></Banner>
+      </div>
     <div class="typeitem">
       <div class="itemlist">
         <p><img src="../assets/icon/FM.png" alt=""></p>
@@ -51,6 +53,9 @@ export default {
       pannelid:false,
       banner:'/banner'
     }
+  },
+  beforeCreate() {
+    // this.$store.state.loading=true
   },
   mounted() {
     axios.get("/top/album?offset=0&limit=30").then(res=>{

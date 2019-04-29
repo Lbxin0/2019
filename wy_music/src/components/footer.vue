@@ -25,13 +25,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
     .hello{
-        width:100%;
+        width:100vw;
         // border: 1px solid red;
         display: flex;
         position: fixed;
         bottom: 0;
         background: rgb(240, 240, 240);
         // padding: 0.3rem 0px;
+        font-size: 1.6rem;
         .router-link-active{
             color: red;
         }
@@ -42,13 +43,13 @@ export default {
             text-decoration: none;
             line-height: 1;
             margin-bottom: -0.2rem;
-            padding:0.3rem 0;
+            padding:0.6rem 0;
             // &.active{
             //     color: rgb(219, 20, 20);
             // }
             span{
                 margin: 0 auto;
-                height: 1.7rem;
+                height: 2rem;
                 margin-bottom: 0.2rem;
             }
         }

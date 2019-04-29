@@ -9,6 +9,7 @@ import Video from '@/pages/videos/video'
 import Music from '@/pages/music/index'
 import Songpannel from '@/pages/music/songSheetP'
 import Lvideo from '@/pages/Lvideo/index'
+import Account from '@/pages/account/index'
 
 Vue.use(Router)
 
@@ -55,6 +56,12 @@ export default new Router({
       // redirect: '/',
       name:'Lvideo',
       component:Lvideo
+    },
+    {
+      path:'/account',
+      // redirect: '/',
+      name:'account',
+      component:Account
     }
     
   ]

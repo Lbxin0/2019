@@ -119,7 +119,7 @@ export default {
 .containers {
   width: 95%;
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 20px!important;
   padding: 5px 0;
   overflow: hidden;
   .swiperOwns {

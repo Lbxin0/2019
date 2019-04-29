@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <Player @closeplay='closeplay' :videoplay='videoplay' :videoitem='videoitem' :videosrc='videosrc' :commentitem='commentitem' :urlid='urlid' :userid='userid'></Player>
+        <Player @closeplay='closeplay' :videoplay='videoplay' :videoitem='videoitem' :videosrc='videosrc' :commentitem='$store.state.commentitem' :urlid='urlid' :userid='userid'></Player>
         <div v-show="videoplaystates">
             <div class="search_advice_item" v-show="!$store.state.hotsearch" >
                 <div class="searchadvice">
@@ -130,7 +130,8 @@ export default {
                 // that.videoplay=true;
                 // that.videoitem=res.data.data;
                 // that.videosrc=res.data.data.brs[240]
-                that.commentitem=res.data.hotComments
+                that.$store.state.commentitem=res.data.hotComments;
+                
                 }).catch(
                     err=>{
                         console.log(err);
@@ -230,7 +231,7 @@ export default {
             videoplaystates:true,
             videoitem:{},
             videosrc:'',
-            commentitem:[],
+            // commentitem:[],
             urlid:'',
             userid:'',
 

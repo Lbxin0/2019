@@ -85,6 +85,7 @@ export default {
         text-align: left;
         // padding:0 0 10px 15px;
         padding-bottom: 10px;
+        font-size: 1.4rem;
     }
     .pannelitem{
         // flex: 1;
@@ -112,8 +113,9 @@ export default {
         }
         p{
             font-size: 13px;
-            height: 4.5rem;
+            height: 5rem;
             overflow: hidden;
+            
         }
     }
 }
