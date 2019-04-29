@@ -1,8 +1,7 @@
 <template>
     <div class="contaier">
-        <Player :closeplay='videoplay' :videoitem='videoitem' :videosrc='this.$store.state.videoSrc' :commentitem='commentitem' :urlid='urlid' :userid='userid'></Player>
-        <!-- <div class="header">{{adurlHeader}}</div> -->
-        <div class="header" >MV精选 ></div>
+        <Player :closeplay='videoplay' :videoitem='videoitem' :videosrc='this.$store.state.videoSrc' :commentitem='$store.state.commentitem' :urlid='urlid' :userid='userid'></Player>
+        <div class="header" >{{title}}</div>
         <div class="pannelitem" v-for="item in adurllist" :key="item.id" @click="openvideo(item.id,item.artists[0].id)">
             <img :src="item.cover" alt="">
             <!-- {{item.artists[0].id}} -->
@@ -22,13 +21,12 @@ export default {
             videoplay:false,
             videoitem:{},
             // videosrc:that.$store.state.videoSrc,
-            commentitem:[],
+            // commentitem:[],
             urlid:'',
             userid:'',
 
-            adurllist:[],
+            // adurllist:[],
             adUrls:'',
-            DadurlHeader:this.adurlHeader,
         }
     },
     mounted() {
@@ -63,7 +61,7 @@ export default {
                 // that.videoplay=true;
                 // that.videoitem=res.data.data;
                 // that.videosrc=res.data.data.brs[240]
-                that.commentitem=res.data.hotComments
+                that.$store.state.commentitem=res.data.hotComments
                 }).catch(
                     err=>{
                         console.log(err);
@@ -73,29 +71,16 @@ export default {
                 
             }
     },
-    props:['adUrl','adurlHeader'],
+    props:{
+        adurllist:{
+            type:Array
+        },
+        title:{
+            type:String
+        }
+    },
     created() {
-        let that=this;
         
-        axios.get('/login/cellphone?phone=15101366030&password=Lbxin0516').then(function(res){
-            console.log(res.status);
-            // alert(res)
-        }).catch(function(err){
-            console.log(err);
-        })
-    
-        axios.get('/top/mv').then(function(res){
-            //console.log(JSON.stringify(res.data.data)+"--------------------");
-        //  console.log(JSON.stringify(res)+"====================================");
-         that.adurllist=res.data.data.slice(0,6);
-         that.userid=that.adurllist.artists;
-        //  console.log(that.userid);
-         
-        //  console.log(JSON.stringify(that.adurllist)+"--------==========------------=========");
-        //  console.log(JSON.stringify(that.userid)+"--------==========------------=========");
-         }).catch(function(err){
-            // alert(err);
-         });
          
     },
 }
@@ -129,12 +114,13 @@ export default {
     // display: flex;
     // flex-wrap: wrap;
     // flex-direction: row;
-   
+   color:#666;
     .header{
         width: 100%;
         text-align: left;
         // padding:0 0 10px 15px;
         padding-bottom: 10px;
+        font-size: 1.5rem;
     }
     .pannelitem{
         // flex: 1;

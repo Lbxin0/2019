@@ -7,7 +7,7 @@
                 <video   :src="videosrc" autoplay controls></video>
             </div>
             <div class="commentOwn">
-                <p>评论  <span> 共{{commentitem.length}}条评论</span></p>
+                <p>评论  <span> 共{{$store.state.commentitem.length}}条评论</span></p>
                 <div class="commentitem">
                     <div class="userimg">
                         <img src="http://p3.music.126.net/pz63MAVf8GYk1Yru10iTFQ==/109951163834784962.jpg?param=50y50" alt="">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="container" style="height:200px;overflow-y: scroll;border-top:1px solid #000">
-                <div class="comment" v-for="(item,index) in commentitem" :key="index">
+                <div class="comment" v-for="(item,index) in $store.state.commentitem" :key="index">
                     <div class="hdinfo">
                         <img :src="item.user.avatarUrl" alt="">
                         <h3>{{item.user.nickname}}</h3>
@@ -97,12 +97,12 @@ export default {
             // that.videoplay=true;
             that.videoitem=res.data.data;
             // that.videosrc=res.data.data.brs[240];
-            console.log(JSON.stringify(res+"[][][][][]][][][]"));
+            console.log(res);
             
             
         }).catch(
             err=>{
-                console.log(err+"[][][][][]][][][]");
+                console.log(err);
             }
         );
         },
@@ -112,9 +112,10 @@ export default {
             that.Dvideosrc='';
             // that.urlid='';  
             // that.$refs.search.value='';
-            that.$store.state.hotsearch=''; 
+            // that.$store.state.hotsearch=''; 
             that.$store.state.MvId=''; 
             that.$store.state.videoSrc=''; 
+            that.$store.state.commentitem="",
             // that.$emit('closeplay',true);
             that.$store.state.videoplay=false;
             that.$store.state.MvId='';
@@ -132,6 +133,10 @@ export default {
         transform: translateY(-50%);
         top: 50%;
         background: #ccc;
+        .myVideos{
+            width:100vw;
+            overflow: hidden;
+        }
         .commentOwn{
             width: 100%;
             background: #ccc;
@@ -273,7 +278,7 @@ export default {
         }
         .close{
             position: absolute;
-            top: 4rem;
+            top: 1rem;
             right: 0px;
             width: 65px;
             height: 25px;
@@ -281,7 +286,7 @@ export default {
             background: #bbb;
             color: #fff;
             font-size: 16px;
-            z-index: 100;
+            z-index: 500;
             animation: fadein 2s linear infinite alternate;
             // animation:fadein 5s infinite;
         }
