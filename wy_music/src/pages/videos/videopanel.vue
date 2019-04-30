@@ -57,7 +57,7 @@ export default {
                 }
             );
             axios.get(`comment/mv?id=${that.$store.state.openvideo}`).then(res=>{
-                console.log(JSON.stringify(res.data.hotComments)+"=====================");
+                // console.log(JSON.stringify(res.data.hotComments)+"=====================");
                 // that.videoplay=true;
                 // that.videoitem=res.data.data;
                 // that.videosrc=res.data.data.brs[240]

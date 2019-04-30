@@ -52,7 +52,7 @@
           <label for=""><input class="submits" type="submit" @click="submit()"></label><br><br>
       </div>
     </div>
-    <header v-if="$route.path!='/pannelT'">
+    <header v-if="$route.path!='/pannelT'" >
       <div class="headerL" @click="login=true" v-if="searchactive"><slot name="headerL" ></slot></div>
       <div class="headerM">
         <div class="inputshadow" @click="searchactive=false" v-if="searchactive"></div>
@@ -66,7 +66,7 @@
        <router-view @sendsonurl="receivesonurl(arguments)" v-if="!iframeState"></router-view>
       
     </keep-alive>
-    <Footer :iframe-state="iframeState" @changeiframeState="changeiframeState($event)"></Footer>
+    <Footer :iframe-state="iframeState" @changeiframeState="changeiframeState($event)" v-if="!iframeState"></Footer>
   </div>
 </template>
 
@@ -468,7 +468,7 @@ a{
   padding-bottom: 5rem;
   position: relative;
   z-index: 105;
-  margin-top:5rem;
+  padding-top:5rem;
   overflow-x: hidden;
   .loading{
     position: fixed;
@@ -479,13 +479,13 @@ a{
     z-index:555;
   }
   .playifram{
-    width: 100%;
-    height: 91vh;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     background: #ccc;
-    z-index: 105;
+    z-index: 555;
     overflow: hidden;
     color: red;
     font-size: 1.6rem;
@@ -737,6 +737,7 @@ a{
     // border-bottom:1px solid #000;
     position: fixed;
     top:0;
+    z-index:500;
     .headerL{
       flex: 1;
       background: url('./assets/icon/phone.png') center no-repeat;

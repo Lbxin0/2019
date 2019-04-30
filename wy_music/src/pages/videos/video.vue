@@ -40,7 +40,7 @@ export default {
         });
          axios.get("/search?keywords=古装原声&type=1004").then(res=>{
             this.adurllist3=res.data.result.mvs;
-            console.log(res.data.result)
+            // console.log(res.data.result)
         }).catch(err=>{
             console.log(err);
         });

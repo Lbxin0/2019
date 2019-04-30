@@ -47,7 +47,6 @@ export default {
         //     default:false
         // },
         videoitem:{
-            default:{}
         },
         videosrc:{
             default:''
@@ -97,6 +96,8 @@ export default {
             // that.videoplay=true;
             that.videoitem=res.data.data;
             // that.videosrc=res.data.data.brs[240];
+            console.log('*******//////////**********');
+            
             console.log(res);
             
             

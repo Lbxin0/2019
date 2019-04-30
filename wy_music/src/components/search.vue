@@ -317,7 +317,7 @@ export default {
                 border-bottom: 1px solid @border_sm_color;
             }
             .searchlist{
-                width: 100%;
+                width: 100vw;
                 ul{
                     li{
                         width: 100vw;
@@ -358,11 +358,14 @@ export default {
                 ul{
                     // width: 170%;
                     overflow: auto;
+                    width:100vw;
+                    display:flex;
                     li{
                         display: inline-block;
                         background:pink;
                         // padding: 0.2rem 0.5rem;
-                        width: 5rem;
+                        width: 15vw;
+                        flex:1;
                         float: left;
                     }
                 }
