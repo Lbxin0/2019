@@ -5,6 +5,7 @@ const state={
         sonid:'',
         MvId:'',
         videoplay:false,
+        sonplay:false,
         SearchContent:'',
         popsearchhistory:['邓紫棋','起风了','华晨宇'],  //搜索历史
         hotsearch:'',

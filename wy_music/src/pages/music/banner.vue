@@ -6,7 +6,6 @@
             <div class="singerinfo">
                 <div class="colse" @click="closesinger()"></div>
                 <h4>{{sonitem.artist.name}}</h4>
-                <!-- <h4> <span class=""></span></h4> -->
                 <img :src="sonitem.artist.img1v1Url" alt="">
             </div>
             <div class="infoitem" ref="infoitem" style="height: 3rem;">
@@ -22,21 +21,23 @@
         </div>
     </div>
 
-    <div class="header">热门歌手 ></div>
-    <swiper :options="swiperOption" ref="mySwiper" class="swiperOwns" style="">
-    <!-- slides -->
-    <swiper-slide v-for="(item,index) in toBanner" :key="index" class="slideOwn" style="width:100%">
-        <a href="javascript:;" @click="opensinger(item.id,index)">
-            <img :src="item.img1v1Url" alt="">
-            <h6>{{item.name}}</h6>
-        </a>
-    </swiper-slide>
-    <!-- Optional controls -->
-    <div class="swiper-pagination"  slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-    <div class="swiper-scrollbar"   slot="scrollbar"></div>
-  </swiper>
+    <div class="hotsinger" v-else="">
+        <div class="header">热门歌手 ></div>
+        <swiper :options="swiperOption" ref="mySwiper" class="swiperOwns" style="">
+        <!-- slides -->
+        <swiper-slide v-for="(item,index) in toBanner" :key="index" class="slideOwn" style="width:100%">
+            <a href="javascript:;" @click="opensinger(item.id,index)">
+                <img :src="item.img1v1Url" alt="">
+                <h6>{{item.name}}</h6>
+            </a>
+        </swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination"  slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+        <div class="swiper-scrollbar"   slot="scrollbar"></div>
+        </swiper>
+    </div>
  </div>
 </template>
 <script>
@@ -139,7 +140,7 @@
 }
 .container{
     background: #ccc!important;
-    padding-bottom: 85px;
+    // padding-bottom: 85px;
     .container{
     width: 100%;
     .songlist{

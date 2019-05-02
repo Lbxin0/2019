@@ -39,7 +39,7 @@ export default {
         //  console.log(JSON.stringify(res)+"====================================");
         //  that.adurllist=res.data.result.slice(0,6);
          }).catch(function(err){
-             alert(err)
+            //  alert(err)
              console.log(err);
          })
         }
@@ -113,8 +113,11 @@ export default {
         }
         p{
             font-size: 13px;
-            height: 5rem;
             overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp:2;
+
             
         }
     }

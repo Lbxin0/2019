@@ -221,7 +221,7 @@ export default {
         // let ulwidth=this.$refs.searchnavli[0].offsetWidth*this.$refs.searchnavli.length;
         let ulwidth=5*this.$refs.searchnavli.length;
         // console.log(this.$refs.searchnavli.length+"----------length--==--ulwidth");
-        this.$refs.searchnavul.style.width=ulwidth+"rem";
+        // this.$refs.searchnavul.style.width=ulwidth+"rem";
         // console.log(this.$refs.searchnavul.offsetWidth+"----------ulwidth--==--ulwidth");
         
     },

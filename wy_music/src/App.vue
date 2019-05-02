@@ -8,7 +8,7 @@
       <div class="songname" v-if="iframeState">{{sonins.name}}</div>
       <div class="singername" v-if="iframeState">—— {{sonins.ar[0].name}}—— </div>
       <!-- <div class="singername" v-if="iframeState">{{sonins.alia}}</div> -->
-      <div class="playbg">
+      <div :class="playbg">
         <img :src="soninfoal.picUrl" alt="" v-if="iframeState">
       </div>
       <div class="audiocontrol">
@@ -28,17 +28,17 @@
           
         </div>
         <div class="playcontrol">
-          <span> <i></i> </span>
+          <span @click="AutoPlay()"> <i :class="autoplay"></i> </span>
           <span @click="prevtson()"> <i></i> </span>
-          <span @click="playson()" ref="sonplay"> <i ></i> </span>
+          <span @click="playson()" ref="sonplay"> <i :class="playControl"></i> </span>
           <span @click="nextson()"> <i></i> </span>
           <span> <i></i> </span>
         </div>
         <div class="soncontrol">
+          <span @click="Nocollect()"> <i :class="nocollect"></i> </span>
           <span> <i></i> </span>
           <span> <i></i> </span>
-          <span> <i></i> </span>
-          <span @click="Muted()" > <i ref="Muted" ></i> </span>
+          <span @click="Muted()" > <i ref="Muted" :class="novolice"></i> </span>
           <span> <i></i> </span>
         </div>
       </div>
@@ -112,8 +112,28 @@ export default {
       time:'',
       runtime:'',
       stime:'',
-      touchstart:0 //移动端滑动事件坐标
+      touchstart:0, //移动端滑动事件坐标
+      muted:false,   //控制son是否静音
+      collect:false,  //是否收藏该音乐
+      Dautoplay:true,  //随机播放
     }
+  },
+  computed: {
+    playbg(){
+      return this.$store.state.sonplay ? 'playbg playRotate' : 'playbg'
+    },
+    playControl(){  
+      return this.$store.state.sonplay ? 'pausedson' : ' ' 
+    },
+    novolice(){
+      return this.muted?'novolice' : ' ' 
+    },
+    nocollect(){
+      return this.collect?'':'nocollect'
+    },
+    autoplay(){
+      return this.Dautoplay?'':'autoplay'
+    },
   },
   mounted() {   ///login?email=xxx@163.com&password=yyy
     // console.log(this.$refs.search+"that.$refs.searchthat.$refs.searchthat.$refs.search");
@@ -223,15 +243,20 @@ export default {
     //   console.log(pencent);
       
     // },
-
+    Nocollect(){
+      this.collect=!this.collect;
+      
+    },
 
     Muted(){
       let that=this;
       let audio=that.$refs.audio;
       if(audio.muted){
         audio.muted=false;
+        that.muted=false;
       }else{
         audio.muted=true;
+        that.muted=true;
       }
       // console.log(audio.defaultMuted+'666666666666');
       
@@ -267,7 +292,10 @@ export default {
       
         // this.audioEle.currentTime = this.currentMusic.duration * percent
     },
-    prevtson(){
+    AutoPlay(){
+      this.Dautoplay=!this.Dautoplay
+    },
+    prevtson(){  //上一首函式
       this.timeToMinute();
       let stateSonId=this.$store.state.SonId,
       SonID=stateSonId.indexOf(this.$store.state.ActiveId);
@@ -332,20 +360,15 @@ export default {
       // console.log(audio.currentTime);
       if(audio.paused){
         audio.play();// 播放 
+        that.$store.state.sonplay=true;
       }else{
-        
-        // console.log(currentTimeinterval);
-        
-        //  var timeinter=setInterval(function(){
-        //   that.runtime++
-        // },1000);
-    //  },2000)
         if(that.runtime==that.stime){
           // alert(that.stime)
           // alert(that.runtime)
           clearInterval(timeinter)
         }
         audio.pause();// 暂停
+        that.$store.state.sonplay=false;
       }
     },
     receivesonurl(args){
@@ -358,11 +381,6 @@ export default {
             // filterByName(args[0][1].hotSongs,sonid);
             
             // console.log(JSON.stringify(args)+"args---");
-            // alert(JSON.stringify(that.filterByName(args[0][1].hotSongs.slice(0,3)),'name'));
-            // alert(JSON.stringify(args[0][1].hotSongs.slice(0,3)));
-            // alert(JSON.stringify(args[0][1].hotSongs.slice(0,3)))
-            // alert(that.filterByName(args[0][1].hotSongs,'args[0][2]'));
-            // alert(JSON.stringify(args[0][2]))
             // console.log(JSON.stringify(args[0][2])+"=======args[0][1].hotSongs[0]");
             that.soninfo=args[0][1].hotSongs[0];
             that.soninfoal=args[0][2].al;
@@ -401,7 +419,7 @@ export default {
       let pass=document.querySelector('.password').value;
       sessionStorage.setItem('tel',tel);
       sessionStorage.setItem('password',pass);
-      alert(sessionStorage.getItem("tel"));
+      // alert(sessionStorage.getItem("tel"));
       axios.get(`/login/cellphone?phone=${tel}&password=${pass}`).then(
       function(res){
         //console.log(res);
@@ -489,15 +507,16 @@ a{
     overflow: hidden;
     color: red;
     font-size: 1.6rem;
+    background-size: cover;
     &::before{
       content: " ";
       display: block;
       width: 100%;
       height: 100%;
       position: absolute;
-      background: rgba(156, 156, 156,1);
-      filter: blur(3px);
-      opacity: 0.4;
+      background: rgba(117, 115, 115,.85);
+      // filter: blur(30px);
+      // opacity: 0.4;
     }
     .colse{
     //    float: right;
@@ -517,6 +536,9 @@ a{
         height: 2rem;
         line-height: 2rem;
     }
+    .playRotate{   //歌曲播放图片旋转
+      animation: playrotate 5s linear   infinite ;
+    }
     .playbg{
       width: 26rem;
       height: 26rem;
@@ -531,7 +553,6 @@ a{
       overflow: hidden;
       background: url('./assets/playbg.png') center no-repeat / 100% 100%;
       background-size:contain;
-      animation: playrotate 5s linear   infinite ;
       img{
         width: 65vw;
         position: absolute;
@@ -558,7 +579,8 @@ a{
       position: absolute;
       bottom: 0;
       box-sizing: border-box;
-      background: rgba(204, 204, 204,.7);
+      background: rgba(204, 204, 204,.9);
+      padding:0.3rem 0;
       >div{
         padding: 0.2rem 0;
         box-sizing: border-box;
@@ -598,6 +620,13 @@ a{
       .playcontrol{
         height: 40%;
         display: flex;
+        .pausedson{
+          background: url('./assets/icon/pausedson.png') center no-repeat / 100% 100%!important;
+        }
+        
+        .autoplay{
+          background: url('./assets/icon/Randomplay.png') center no-repeat / 100% 100%!important;
+        }
         >span{
           height: 100%;
           position: relative;
@@ -639,7 +668,7 @@ a{
           &:nth-child(5){
             flex: 2;
             i{
-              background: url('./assets/icon/listson.png') center no-repeat / 100% 100%;
+              background: url('./assets/icon/listson.png') center no-repeat / 85% 85%;
             }
           }
         }
@@ -650,6 +679,12 @@ a{
         >span{
           height: 100%;
           flex: 1;
+          .novolice{
+            background: url('./assets/icon/novolice.png') center no-repeat / 100% 100%!important;
+          }
+          .nocollect{
+            background: url('./assets/icon/nocollect.png') center no-repeat / 100% 100%!important;
+          }
           &:nth-child(1){
             i{
               background: url('./assets/icon/collect.png') center no-repeat / 100% 100%;

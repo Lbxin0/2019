@@ -10,6 +10,9 @@ import Music from '@/pages/music/index'
 import Songpannel from '@/pages/music/songSheetP'
 import Lvideo from '@/pages/Lvideo/index'
 import Account from '@/pages/account/index'
+import Ranking from '@/pages/find/Ranking/'
+import RankingPannel from '@/pages/find/Ranking/RankingPannel'
+
 
 Vue.use(Router)
 
@@ -62,6 +65,21 @@ export default new Router({
       // redirect: '/',
       name:'account',
       component:Account
+    },
+    {
+      path:'/Ranking/:id',
+      name:'Ranking',
+      component:Ranking,
+      children:[
+        {
+          path:"/:id",
+          component:RankingPannel
+        },
+        {
+          path:'/',
+          component:RankingPannel
+        }
+      ]
     }
     
   ]

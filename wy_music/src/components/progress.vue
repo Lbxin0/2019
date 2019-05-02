@@ -167,9 +167,11 @@
             .mmProgress-dot {
                 position: absolute;
                 top: 50%;
-                right: -5px;
-                width: 10px;
-                height: 10px;
+                right: -8px;
+                width: 7px;
+                height: 7px;
+                border:3px solid #d44439;
+                margin-left:2px;
                 border-radius: 50%;
                 background-color: @dot_color;
                 transform: translateY(-50%);

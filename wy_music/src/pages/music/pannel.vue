@@ -53,7 +53,7 @@ export default {
             // console.log(JSON.stringify(res.data.list.artists))
          that.adurllist=res.data.list.artists.slice(0,30);
          }).catch(function(err){
-             alert(err)
+            //  alert(err)
              console.log(err);
          })
          

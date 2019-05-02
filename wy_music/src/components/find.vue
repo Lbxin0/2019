@@ -19,10 +19,10 @@
         <p><img src="../assets/icon/sonlist.png" alt=""></p>
         <span>歌单</span>
         </router-link>
-        <div class="itemlist">
-        <p><img src="../assets/icon/play.png" alt="" style="width:55%"></p>
-        <span>排行榜</span>
-      </div>
+        <router-link to="/Ranking/0" class="itemlist">
+            <p><img src="../assets/icon/play.png" alt="" style="width:55%"></p>
+            <span>排行榜</span>
+        </router-link>
     </div>
     <pannelt ad-url="/personalized" adurl-header='推荐歌单 >'></pannelt>
     <pannelt style="height:100%;z-index:-1;"  ad-url="/personalized/privatecontent" adurl-header='精品歌单 >'></pannelt>
@@ -78,7 +78,7 @@ export default {
     // console.log(JSON.stringify(res.data.result.slice(0,6))+"====================================");
     that.advicelist=res.data.result.slice(0,6);
     }).catch(function(err){
-        alert("err")
+        // alert("err")
         console.log(err);
     })
   }

@@ -13,7 +13,7 @@ export default {
   methods: {
       receivesonurl(sonurl){
           let that=this;
-            alert(JSON.stringify(sonurl));
+            // alert(JSON.stringify(sonurl));
             that.$emit('sendsonurl',sonurl)
         }
   },
