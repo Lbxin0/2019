@@ -29,6 +29,10 @@
 
 
 
+#### 排行榜页面
+![排行榜页](https://x0516.github.io/SourceData/ProjectSourceImg/wy_music/RankingList.jpg)
+
+
 ## 项目开发目的
 
 通过项目练习，熟悉Vue 全家桶，让自己提前熟悉公司项目开发流程，并且通过练习项目拓展其他相关技术栈，提高自己的整体技术开发能力。
