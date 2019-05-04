@@ -6,7 +6,7 @@
       loop
     >Your browser does not support the audio element.</audio>
     <Pannel :title="title" :cpclass="cpclass">
-      <div class="ItemContainer" v-for="item in items" :key="item.title">
+      <div class="ItemContainer" v-for="(item,index) in items" :key="item.title">
         <div class="ItemSwiper">
           <swiper-component style="width:100%;" :items="item.src" :options="options"/>
         </div>
@@ -14,9 +14,9 @@
           <h1>{{item.title}}</h1>
           <h3>地点：{{item.location}}</h3>
           <!-- <p class="itemInfo">详情：{{item.description}}</p> -->
-          <div class="infoitem" ref="infoitem" style="height: 1.9rem;">
+           <div class="infoitem" ref="infoitem" style="height: 1.9rem">
             <p>详情：{{item.description}}</p>
-            <i @click="openinfoitem()" ref="openinfoI"></i>
+            <i @click="openinfoitem(index)" ref="openinfoI"></i>
           </div>
         </div>
       </div>
@@ -76,15 +76,16 @@ export default {
       });
   },
   methods: {
-    openinfoitem() {
+    openinfoitem(index) {
       let that = this;
-    //   that.$refs.infoitem.style.height =
-    //     that.$refs.infoitem.style.height == "100%" ? "1.9rem" : "100%";
-    //   if (that.$refs.infoitem.style.height == "100%") {
-        that.$refs.openinfoI.style.transform = "rotate(180deg)";
-    //   } else {
-    //     that.$refs.openinfoI.style.transform = "rotate(0)";
-    //   }
+      console.log(that.$refs.infoitem[index].style.height)
+      that.$refs.infoitem[index].style.height =
+        that.$refs.infoitem[index].style.height == "100%" ? "1.9rem" : "100%";
+      if (that.$refs.infoitem[index].style.height == "100%") {
+        that.$refs.openinfoI[index].style.transform = "rotate(180deg)";
+      } else {
+        that.$refs.openinfoI[index].style.transform = "rotate(0)";
+      }
     }
   }
 };
@@ -115,7 +116,12 @@ export default {
                 overflow: hidden;
                 border-bottom: 2px solid #f4f4f4;
                 p{
-                    width: 85%;
+                    width: 87%;
+                    text-align: left;
+                    padding-left: 3rem;
+                    text-indent: -3rem;
+                    box-sizing: border-box;
+                    line-height:1.6rem;
                 }
                 i{
                     width: 2rem;
@@ -123,7 +129,7 @@ export default {
                     display: block;
                     position: absolute;
                     top: 0;
-                    right: 0.6rem;
+                    right: 0.5rem;
                     background: url('../../assets/images/close_icon.png') center no-repeat / 100% 100%;
                     background-size:contain
                     
