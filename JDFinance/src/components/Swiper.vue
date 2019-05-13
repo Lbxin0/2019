@@ -4,6 +4,7 @@
       <swiper-slide v-for="item in items" :key="item.src">
         <!-- <router-link :to="{name: item.href}"> -->
           <img :src="item.src" alt="" style="width:100%;height:100%">
+          <h4 v-if="item.title">{{item.title}}</h4>
         <!-- </router-link> -->
       </swiper-slide>
       <div class="swiper-pagination" v-if="options" slot="pagination"></div>

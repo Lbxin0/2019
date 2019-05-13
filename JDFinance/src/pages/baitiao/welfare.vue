@@ -14,9 +14,11 @@
       </div>
 			</div>
     </Pannel>
+    <swiper-component :items="Welfitems" />
   </div>
 </template>
 <script>
+import SwiperComponent from "@/components/Swiper";
 import Pannel from "@/components/Pannel";
 export default {
   name: "welfare",
@@ -34,6 +36,20 @@ export default {
     return {
       title: "白条福利",
       cpclass:"welfare",
+      Welfitems:[   //白条swiperlist数据
+            {
+                href: 'home',
+                src: '//img12.360buyimg.com/jrpmobile/jfs/t1/21509/20/4531/39775/5c33281eE7e0635bb/6a8c62f841f035a7.png?width=1080&height=240'
+            },
+            {
+                href: 'home',
+                src: '//img12.360buyimg.com/jrpmobile/jfs/t22897/39/1541754983/14812/d61317bc/5b6263e4Nbd9cf24d.png?width=690&height=154'
+            },
+            {
+                href: 'home',
+                src: '//img12.360buyimg.com/jrpmobile/jfs/t1/12277/16/15363/78163/5caf2fe1Ea8b5743e/5afe5457e88a1e33.jpg?width=1080&height=240'
+            }
+      ],
       welfareitem: [               
         {
           title: "开通白条",
@@ -60,7 +76,8 @@ export default {
     };
   },
   components: {
-    Pannel
+    Pannel,
+    SwiperComponent
   }
 };
 </script>

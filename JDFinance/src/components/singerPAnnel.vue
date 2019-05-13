@@ -1,8 +1,8 @@
 <template>
     <div class='SigerrPannel'>
         <div class="list">
-            <div class="item" v-for="item in enters" :key="item.img" :style="PannelClass">
-                <router-link :to="item.href">
+            <div class="item" v-for="item in enters" :key="item.img" :style="PannelClass" @click="FooterHide(item.title)">
+                <router-link :to="item.href" >
                 <img :src="item.img" :alt="item.desc">
                 <h4>{{item.title}}</h4>
                 </router-link>
@@ -21,7 +21,16 @@ export default {
         PannelClass:{
             type:String
         }
-    }
+    },
+    methods: {
+        FooterHide(e){
+            if(e=='省钱'){
+                console.log('sq ');
+                this.$store.commit('FooterHide')
+            }
+            
+        }
+    },
 }
 </script>
 <style scoped lang='less'>

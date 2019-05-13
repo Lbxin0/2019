@@ -10,13 +10,44 @@ import  BaiTiao from '@/pages/baitiao/index'
 import  CrowdFunding from '@/pages/crowdfunding/index'
 import  FreePacket from '@/pages/freePacket/index'
 import  Relax from '@/pages/relax/index'
+import  SaveMoney from '@/pages/SaveMoney/index'
+import  BorrowM from '@/pages/SaveMoney/BorrowM'
+import  SaveM from '@/pages/SaveMoney/SaveM'
+import  MyM from '@/pages/SaveMoney/MyM'
 
 export default new Router({
-  routes: [ 
+  routes: [
+    { 
+      path:'/SaveMoney',
+      name:'SaveMoney',
+      component:SaveMoney,
+      children:[
+        {
+          path:"/SaveMoney/BorrowM",
+          name:'BorrowM',
+          component:BorrowM
+        },
+        {
+          path:"/SaveMoney/",
+          name:'BorrowM',
+          component:BorrowM,
+        },
+        {
+          path:"/SaveMoney/SaveM",
+          name:'SaveM',
+          component:SaveM,
+        },
+        {
+          path:"/SaveMoney/MyM",
+          name:'MyM',
+          component:MyM,
+        }
+      ]
+    }, 
     { 
       path:'/',
       name:'redirect',
-      component:Home
+      redirect:'/home'
     },
     { 
       path:'/home',

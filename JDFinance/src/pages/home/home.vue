@@ -106,9 +106,9 @@ export default {
                 title: '工资理财'
             },
             {
-                href: 'home',
+                href: '/SaveMoney',
                 img: 'https://img12.360buyimg.com/jrpmobile/jfs/t1/1216/39/659/4516/5b923b1cE5943d1c6/dabaf8b842f57eb9.png?width=90&height=90',
-                title: '众筹'
+                title: '省钱'
             },{
                 href: 'home',
                 img: 'https://img12.360buyimg.com/jrpmobile/jfs/t1/3924/28/657/3552/5b9240dbE60256c31/78b52d5ab675f800.png?width=90&height=90',
@@ -131,9 +131,8 @@ export default {
         SingerPAnnel
         // SwiperComponents
     },
-    mounted() {
-   
-    },
+    methods: {
+    },  
 }
 </script>
 <style scoped  lang="sass">

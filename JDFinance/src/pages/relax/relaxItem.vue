@@ -14,7 +14,7 @@
           <h1>{{item.title}}</h1>
           <h3>地点：{{item.location}}</h3>
           <!-- <p class="itemInfo">详情：{{item.description}}</p> -->
-           <div class="infoitem" ref="infoitem" style="height: 1.9rem">
+           <div class="infoitem" ref="infoitem" style="height: 1.8rem">
             <p>详情：{{item.description}}</p>
             <i @click="openinfoitem(index)" ref="openinfoI"></i>
           </div>
@@ -80,7 +80,7 @@ export default {
       let that = this;
       console.log(that.$refs.infoitem[index].style.height)
       that.$refs.infoitem[index].style.height =
-        that.$refs.infoitem[index].style.height == "100%" ? "1.9rem" : "100%";
+        that.$refs.infoitem[index].style.height == "100%" ? "1.8rem" : "100%";
       if (that.$refs.infoitem[index].style.height == "100%") {
         that.$refs.openinfoI[index].style.transform = "rotate(180deg)";
       } else {
@@ -114,7 +114,7 @@ export default {
                 width: 100%;
                 position: relative;
                 overflow: hidden;
-                border-bottom: 2px solid #f4f4f4;
+                // border-bottom: 2px solid #f4f4f4;
                 p{
                     width: 87%;
                     text-align: left;
