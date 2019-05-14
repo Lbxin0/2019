@@ -19,7 +19,6 @@ export default {
   props: {
     cclass:{
       type:String,
-      default:""
     },
     cname: {
       type: String,

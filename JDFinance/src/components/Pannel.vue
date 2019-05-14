@@ -1,6 +1,6 @@
 <template>
     <div  class='panelClass' :class="[panelClass,cpclass]">
-        <h4>-&nbsp;{{title}}&nbsp;- <slot name="titleadd" class="titleadd"></slot> </h4>
+        <h4 :class="panelTitleClass">-&nbsp;{{title}}&nbsp;- <slot name="titleadd" class="titleadd"></slot> </h4>
         <slot ></slot>
     </div >
 </template>
@@ -17,6 +17,9 @@ export default {
             default: ''
         },
         cpclass:{
+            type:String
+        },
+        panelTitleClass:{
             type:String
         }
     },
