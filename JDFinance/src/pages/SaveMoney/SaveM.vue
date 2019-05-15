@@ -54,7 +54,7 @@
             "
           >更多神券来这里抢 ></span>
           <div class="swiperComponent">
-            <swiper-component :cclass="cclass" :items="SaveCardList" :options="SaveCardOptions"/>
+            <swiper-component :swiperSlideTramsform="true"  :items="SaveCardList" :options="SaveCardOptions"/>
           </div>
         </Pannel>
       </div>
@@ -113,7 +113,6 @@ export default {
       SaveCardTitle: "省钱优惠券",
       SaveWelfareTitle: "优惠福利",
       DpanelTitleClass: "DpanelTitleClass",
-      cclass: "Dcclass",
       SaveCardList: [
         {
           src:
@@ -165,7 +164,8 @@ export default {
           jumpUrl:
             "https://m.jr.jd.com/mjractivity/rn/couponCenter/index.html?RN=couponCenter&from=lflxb",
           pitOrderNum: "1"
-        }
+        },
+        
       ],
       enjoyFreeList: [
         {
@@ -293,9 +293,6 @@ export default {
     .SaveCard {
       width: 100%;
       .swiperComponent{
-        .Dcclass{
-          border:2px solid red;
-        }
       }
       
       .DpanelTitleClass {

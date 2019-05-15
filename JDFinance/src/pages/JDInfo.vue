@@ -85,5 +85,5 @@ export default {
                     color: #666
         .JDInfoAdd
             width:100%
-            display:flex
+            display: flex
 </style>

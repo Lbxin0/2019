@@ -10,14 +10,14 @@
         </div>
         <swiper-component :items="Welfitems" />
         <div class="hasCarAndMoney">
-            <Pannel :title="hasCarAndMoneyTitle" :cpclass='cpclass'>
+            <Pannel :title="hasCarAndMoneyTitle"  :cpclass='cpclass'>
                 <div class="imgBox">
                     <img src="https://img12.360buyimg.com/jrpmobile/jfs/t1/16662/30/15341/22141/5caf3007Ed04371f5/92aeb35325e56d32.png?width=375&height=233" alt="汽车分期">
                     <img src="https://img12.360buyimg.com/jrpmobile/jfs/t1/21337/31/13706/22340/5ca18608Ebdd6ea02/02d3b385bf9c045c.png?width=375&height=233" alt="汽车贷款">
                 </div>
             </Pannel>
             <div class="BorrowSwiper">
-                <swiper-component :items="selfitems" :options="options"/>
+                <swiper-component  :swiperSlideTramsform="true" :items="selfitems" :options="options"/>
             </div>
         </div>
         <div class="baitiaoService">

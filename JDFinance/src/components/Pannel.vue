@@ -1,6 +1,6 @@
 <template>
     <div  class='panelClass' :class="[panelClass,cpclass]">
-        <h4 :class="panelTitleClass">-&nbsp;{{title}}&nbsp;- <slot name="titleadd" class="titleadd"></slot> </h4>
+        <h4 :class="panelTitleClass? 'panelTitleClass':''">-&nbsp;{{title}}&nbsp;- <slot name="titleadd" class="titleadd"></slot> </h4>
         <slot ></slot>
     </div >
 </template>
@@ -20,7 +20,7 @@ export default {
             type:String
         },
         panelTitleClass:{
-            type:String
+            type:Boolean
         }
     },
     data(){
@@ -47,4 +47,6 @@ export default {
             // right:10px
             font-size:14px
             color:#999
+    .panelTitleClass
+        text-align: left
 </style>

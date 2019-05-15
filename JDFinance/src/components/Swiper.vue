@@ -1,7 +1,7 @@
 <template>
   <section :style="cname">
     <swiper :options="options" :not-next-tick="options.notNextTick" :class="cclass">
-      <swiper-slide v-for="item in items" :key="item.src">
+      <swiper-slide v-for="item in items" :key="item.src" :class="swiperSlideTramsform ? 'swiperSlide':''">
         <!-- <router-link :to="{name: item.href}"> -->
           <img :src="item.src" alt="" style="width:100%;height:100%">
           <h4 v-if="item.title">{{item.title}}</h4>
@@ -19,6 +19,9 @@ export default {
   props: {
     cclass:{
       type:String,
+    },
+    swiperSlideTramsform:{
+      type:Boolean
     },
     cname: {
       type: String,
@@ -76,6 +79,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang='less'>
 @import "~swiper/dist/css/swiper.css";
+.swiperSlide{
+  // &:nth-child(1){
+    transform: translateX(1rem)
+  // }
+}
 </style>
