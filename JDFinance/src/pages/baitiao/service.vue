@@ -74,11 +74,9 @@ export default {
         padding:5px 0
         justify-content: center
         flex-wrap: wrap
-        align-items:center
         width:100vw
         .item
             text-align: center
-            display:flex
             width:24vw
             padding:7px 0
             img

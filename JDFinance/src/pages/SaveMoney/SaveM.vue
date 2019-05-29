@@ -292,9 +292,6 @@ export default {
     width: 100%;
     .SaveCard {
       width: 100%;
-      .swiperComponent{
-      }
-      
       .DpanelTitleClass {
         text-align: left;
         color: red !important;

@@ -39,12 +39,8 @@ export default {
         font-size:20px
         height:60px
         line-height:60px
-        position:relative
         .titleAdd
-            position:absolute
             top:50%
-            transform:translatey(-50%)
-            // right:10px
             font-size:14px
             color:#999
     .panelTitleClass

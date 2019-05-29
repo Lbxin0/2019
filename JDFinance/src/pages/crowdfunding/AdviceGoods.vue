@@ -145,7 +145,7 @@ export default {
                                 border-radius:3px
                         .percentNum
                             width:28%
-                            text-align:center
+                            text-align: center
 
 
 </style>

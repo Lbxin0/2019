@@ -54,5 +54,4 @@ export default {
             display: inline-block
             img
                 width:100%
-                display
 </style>

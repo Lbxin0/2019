@@ -66,13 +66,13 @@ export default {
 .productlist
         width:100vw
         text-align: left
-        overflow:hidden
+        overflow: hidden
         .itenlist
             display: inline-block
             width:110px
             margin:0 5px
         img
             width:100%
-            height:auto
-            display:inline-block
+            height: auto
+            display: inline-block
 </style>
